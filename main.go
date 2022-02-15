@@ -155,6 +155,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	if err = (&controllers.PipelineWatcherReconciler{
+		Client:           mgr.GetClient(),
+		Scheme:           mgr.GetScheme(),
+		Log:              ctrl.Log.WithName("controllers").WithName("PipelineWatcherReconciler"),
+		PipelineRunCache: make(map[string]taskrunapi.PipelineRun),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "PipelineWatcherReconciler")
+		os.Exit(1)
+	}
+
+	// temporary commented to make debugger working...
 	// if os.Getenv("ENABLE_WEBHOOKS") != "false" {
 	// 	setupLog.Info("setting up webhooks")
 	// 	if err = (&appstudiov1alpha1.Component{}).SetupWebhookWithManager(mgr); err != nil {

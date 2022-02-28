@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/redhat-appstudio/application-service/branch/main/graph/badge.svg)](https://codecov.io/gh/redhat-appstudio/application-service)
 
 
-An Kubernetes operator to create and manage applications and control the lifecycle of applications. 51
+An Kubernetes operator to create and manage applications and control the lifecycle of applications. 52
 
 
 ## Building & Testing
